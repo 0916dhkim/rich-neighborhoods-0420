@@ -1,6 +1,4 @@
 FROM node:12-alpine AS builder
-ARG REACT_APP_API_SERVER_URL
-ENV REACT_APP_API_SERVER_URL $REACT_APP_API_SERVER_URL
 WORKDIR /app
 COPY . .
 RUN yarn install --production
