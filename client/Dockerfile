@@ -4,7 +4,7 @@ COPY . .
 RUN yarn install --production
 RUN yarn build
 
-FROM nginx
+FROM nginx:alpine
 COPY ./nginx.conf /etc/nginx/templates/default.conf.template
 COPY --from=builder /app/build /usr/share/nginx/html
 
