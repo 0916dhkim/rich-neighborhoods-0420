@@ -6,19 +6,20 @@ services:
       - 3000:3000
     environment:
       PORT: 3000
-      API_SERVER_URL: http://backend:8080
+      API_SERVER_URL: http://backend:4000
     depends_on:
       - backend
   backend:
     build: ./server
     environment:
+      SERVER_PORT: 4000
       SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/rich-neighborhoods
       SPRING_DATASOURCE_USERNAME: rich-neighborhoods
       SPRING_DATASOURCE_PASSWORD: weroinvoiwenr
       SPRING_JPA_HIBERNATE_DDL-AUTO: update
-      SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT: org.hibernate.dialect.MySQLDialect
+      SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT: org.hibernate.dialect.MySQL8Dialect
     ports:
-      - 8080:8080
+      - 4000:4000
     restart: always
     depends_on:
       - db
