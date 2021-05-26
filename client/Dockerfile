@@ -6,6 +6,10 @@ COPY . .
 RUN yarn install --production
 RUN yarn build
 
-FROM nginx:alpine
-COPY --from=builder /app/build /usr/share/nginx/html
+FROM node:12-alpine
+WORKDIR /public
+COPY --from=builder /app/build /public
+RUN yarn global add serve
+
+CMD serve -s /public
 
