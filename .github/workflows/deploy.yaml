@@ -2,7 +2,7 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - master
+      - main
 
 name: Delpoy to Google Cloud Run
 env:
