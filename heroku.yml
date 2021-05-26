@@ -1,4 +1,7 @@
 build:
-    docker:
-        web: client/Dockerfile
+  docker:
+    web: client/Dockerfile
+    api: server/Dockerfile
+run:
+  api: java -jar /jars/**/*.jar
 
